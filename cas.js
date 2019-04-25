@@ -1,41 +1,9 @@
-const express = require('express');
-const app = express();
-const bodyParser = require('body-parser');
-const cors = require('cors');
-const mongoose = require('mongoose');
-
-
-const studentRoutes = require('./routes/students.route');
-const adminRoutes = require('./routes/admins.route');
-const todoRoutes = require('./routes/todos.route');
-const formRoutes = require('./routes/forms.route')
-
-const PORT = 4000;
-
-app.use(cors());
-app.use(bodyParser.json());
-
-mongoose.connect('mongodb://127.0.0.1:27017/todos', { useNewUrlParser: true });
-const connection = mongoose.connection;
-
-connection.once('open', function() {
-    console.log("MongoDB database connection established successfully");
-})
-
-app.use('/todos', todoRoutes);
-app.use('/students', studentRoutes);
-app.use('/admins', adminRoutes);
-app.use('/forms', formRoutes);
-
-app.listen(PORT, function() {
-    console.log("Server is running on Port: " + PORT);
-});
 var CASAuthentication = require('cas-authentication');
 
 var cas = new CASAuthentication({
     cas_url         : 'https://websso.wwu.edu/cas',
     service_url     : 'https://gpm.cs.wwu.edu',
-    cas_version     : '3.0',
+    cas_version     : '4.3.0',
     renew           : false,
     is_dev_mode     : true,
     dev_mode_user   : 'testperson',
@@ -45,7 +13,7 @@ var cas = new CASAuthentication({
     destroy_session : true
 });
 
-//var app = require('express')();
+var app = require('express')();
 var session = require('express-session');
 //var CASAuthentication = require('cas-authentication');
 
