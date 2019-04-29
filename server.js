@@ -21,6 +21,10 @@ connection.once('open', function() {
     console.log("MongoDB database connection established successfully");
 })
 
+app.get('/oboy', function(req, res) {
+	res.sendFile(path.json(__dirname, 'index.html'));
+});
+
 app.use('/todos', todoRoutes);
 app.use('/students', studentRoutes);
 app.use('/admins', adminRoutes);
