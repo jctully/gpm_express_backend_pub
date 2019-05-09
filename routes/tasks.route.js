@@ -33,10 +33,11 @@ taskRoutes.route('/update/:id').post(function(req, res) {
         if (!task)
             res.status(404).send("data is not found");
         else
-            task.name = req.body.name;
-            task.description = req.body.description;
-            task.link = req.body.link;
-            task.student_id = req.body.student_id;
+            task.task_name = req.body.task_name;
+            task.task_description = req.body.task_description;
+            task.task_link = req.body.task_link;
+            task.task_student_id = req.body.task_student_id;
+            task.task_completed = req.body.task_completed;
 
             task.save().then(task => {
                 res.json('Task updated!');
