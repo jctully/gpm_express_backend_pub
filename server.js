@@ -4,32 +4,11 @@ const bodyParser = require('body-parser');
 const cors = require('cors');
 const mongoose = require('mongoose');
 
-
 const studentRoutes = require('./routes/students.route');
 const adminRoutes = require('./routes/admins.route');
 const todoRoutes = require('./routes/todos.route');
-const formRoutes = require('./routes/forms.route')
+const formRoutes = require('./routes/forms.route');
 
-const PORT = 4000;
-
-app.use(cors());
-app.use(bodyParser.json());
-
-mongoose.connect('mongodb://127.0.0.1:27017/todos', { useNewUrlParser: true });
-const connection = mongoose.connection;
-
-connection.once('open', function() {
-    console.log("MongoDB database connection established successfully");
-})
-
-app.use('/todos', todoRoutes);
-app.use('/students', studentRoutes);
-app.use('/admins', adminRoutes);
-app.use('/forms', formRoutes);
-
-app.listen(PORT, function() {
-    console.log("Server is running on Port: " + PORT);
-});
 var CASAuthentication = require('cas-authentication');
 
 var cas = new CASAuthentication({
@@ -45,9 +24,7 @@ var cas = new CASAuthentication({
     destroy_session : true
 });
 
-//var app = require('express')();
 var session = require('express-session');
-//var CASAuthentication = require('cas-authentication');
 
 // Set up an Express session, which is required for CASAuthentication.
 app.use( session({
@@ -87,3 +64,27 @@ app.get( '/authenticate', cas.bounce_redirect );
 // This route will de-authenticate the client with the Express server and then
 // redirect the client to the CAS logout page.
 app.get( '/logout', cas.logout );
+
+//module.exports = cas;
+
+const PORT = 4000;
+
+app.use(cors());
+app.use(bodyParser.json());
+
+mongoose.connect('mongodb://127.0.0.1:27017/todos', { useNewUrlParser: true });
+const connection = mongoose.connection;
+
+connection.once('open', function() {
+    console.log("MongoDB database connection established successfully");
+})
+
+app.use('/todos', todoRoutes);
+app.use('/students', studentRoutes);
+app.use('/admins', adminRoutes);
+app.use('/forms', formRoutes);
+//app.use('/login', casRoutes);
+
+app.listen(PORT, function() {
+    console.log("Server is running on Port: " + PORT);
+});
