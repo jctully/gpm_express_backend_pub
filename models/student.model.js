@@ -2,17 +2,20 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 let Student = new Schema({
-    username: {
+    student_username: {
         type: String
     },
-    name: {
+    student_name: {
+        type: String
+    },
+    western_id: {
         type: String
     },
     email: {
         type: String
     },
-    program_start_date: {
-        type: Date
+    admission_qtr: {
+        type: String
     }
 });
 
