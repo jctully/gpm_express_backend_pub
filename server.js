@@ -41,8 +41,8 @@ var cas = new CASAuthentication({
 
 // Unauthenticated clients will be redirected to the CAS login and then back to
 // this route once authenticated.
-app.get( '/app', cas.bounce, function ( req, res ) {
-    res.send( '<html><body>Hello!</body></html>' );
+app.get( '/login', cas.bounce, function ( req, res ) {
+    res.send( '<html><body>Hello'+cas.getUser+'!</body></html>' );
 });
 
 // Unauthenticated clients will receive a 401 Unauthorized response instead of
@@ -56,6 +56,7 @@ app.get( '/api', cas.block, function ( req, res ) {
 app.get( '/api/user', cas.block, function ( req, res ) {
     res.json( { cas_user: req.session[ cas.session_name ] } );
 });
+
 
 // Unauthenticated clients will be redirected to the CAS login and then to the
 // provided "redirectTo" query parameter once authenticated.
