@@ -1,6 +1,8 @@
 ## After cloning repo
 
-### 1. Install dependencies
+### 1. Install dependencies:
+
+`$ cd gpm_express_backend`
 
 `$ npm install`
 
@@ -14,6 +16,8 @@ You should now see an output similar to the following:
 
 
 ### 2. Install MongoDB
+
+#### *The following instructions are for MacOS, to install MongoDB for windows, follow the tutorial [here](https://treehouse.github.io/installation-guides/windows/mongo-windows.html).* 
 
 On MacOS this task can be completed by using the following command:
 
