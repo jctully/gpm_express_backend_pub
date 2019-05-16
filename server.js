@@ -1,5 +1,6 @@
 const express = require('express');
 const app = express();
+const https = require('https');
 const bodyParser = require('body-parser');
 const cors = require('cors');
 const mongoose = require('mongoose');
@@ -8,6 +9,7 @@ const studentRoutes = require('./routes/students.route');
 const adminRoutes = require('./routes/admins.route');
 const todoRoutes = require('./routes/todos.route');
 const formRoutes = require('./routes/forms.route');
+const taskRoutes = require('./routes/tasks.route');
 
 var CASAuthentication = require('cas-authentication');
 
@@ -84,8 +86,10 @@ app.use('/todos', todoRoutes);
 app.use('/students', studentRoutes);
 app.use('/admins', adminRoutes);
 app.use('/forms', formRoutes);
-//app.use('/login', casRoutes);
+app.use('/tasks', taskRoutes);
 
 app.listen(PORT, function() {
     console.log("Server is running on Port: " + PORT);
 });
+
+https.createServer()

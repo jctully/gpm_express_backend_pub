@@ -1,2 +1,7 @@
+<<<<<<< HEAD
 # dependencies
 /node_modules
+=======
+.env
+node_modules/
+>>>>>>> da75f8f87e529b57399b7c9c45fa513d188d47f7
