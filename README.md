@@ -16,13 +16,14 @@ You should now see an output similar to the following:
 ### 2. Install MongoDB
 
 On MacOS this task can be completed by using the following command:
+
 `$ brew install mongodb`
 
 Having installed MongoDB on your system you need to create a data directory which is used by MongoDB:
 
 `$ mkdir -p /data/db`
 
-* Before running the next command, make sure you have read and write privileges for the directory. *
+*Before running the next command, make sure you have read and write privileges for the directory.*
 
 Now we’re ready to start up MongoDB by executing the following command:
 
@@ -34,9 +35,11 @@ This should output:
 
 This shows that the database is now running on port 27017 and is waiting to accept client connections.
 
+*This instance should be kept running in its own terminal session.*
+
 ### 3. Create new MongoDB database
 
-* Make sure you're running `$ mongod` in a separate terminal session. *
+*Make sure you're running* `$ mongod` *in a separate terminal session.*
 
 `$ mongo`
 
@@ -44,4 +47,16 @@ Once you're connected, switch to a new database *todos*:
 
 `use todos`
 
-The full tutorial can be viewed [here](https://medium.com/codingthesmartway-com-blog/the-mern-stack-tutorial-building-a-react-crud-application-from-start-to-finish-part-2-637f337e5d61)
+Once that is done, you can exit `mongo`:
+
+`exit`
+
+The full tutorial can be viewed [here](https://medium.com/codingthesmartway-com-blog/the-mern-stack-tutorial-building-a-react-crud-application-from-start-to-finish-part-2-637f337e5d61).
+
+### 4. Run the back-end
+
+To start the server:
+
+`npm start`
+
+*Make sure you are running* `mongod` *in one session, and* `npm start` *in another.*
