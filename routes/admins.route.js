@@ -4,6 +4,7 @@ const adminRoutes = express.Router();
 let Admin = require('../models/admin.model');
 
 adminRoutes.route('/').get(function(req, res) {
+    console.log("IN FUNCTION ADMIN");
     Admin.find(function(err, admins) {
         if (err) {
             console.log(err);
@@ -12,6 +13,7 @@ adminRoutes.route('/').get(function(req, res) {
         }
     });
 });
+
 
 adminRoutes.route('/:id').get(function(req, res) {
     let id = req.params.id;
