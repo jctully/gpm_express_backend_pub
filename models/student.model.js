@@ -16,6 +16,34 @@ let Student = new Schema({
     },
     admission_qtr: {
         type: String
+    },
+    // new added fields from her email, classes in classes table?
+    status: { // fast track or regular -- ft or reg?
+        type: String
+    },
+    ta_assignment: { // list of history? boolean? other?
+        type: String
+    },
+    plan_of_study_link: {
+        type: String
+    },
+    plan_of_study_amendments_link: { // list of amendments?
+        type: String
+    },
+    research_form_692_link: {
+        type: String
+    },
+    expected_grad_qtr: {
+        type: String
+    },
+    app_to_graduate_form_link: {
+        type: String
+    },
+    degree_app_form_link: {
+        type: String
+    },
+    other_notes: {
+        type: String
     }
 });
 
