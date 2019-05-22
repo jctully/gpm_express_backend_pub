@@ -1,11 +1,14 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
-let Form = new Schema({
+let Class = new Schema({
     name: {
         type: String
     },
-    url: {
+    credits_needed: {
+        type: String
+    },
+    credits_completed: {
         type: String
     },
     notes: {
@@ -14,9 +17,9 @@ let Form = new Schema({
     student_id: {
         type: String
     },
-    form_completed: {
+    class_completed: {
         type: Boolean
     }
 });
 
-module.exports = mongoose.model('Form', Form);
+module.exports = mongoose.model('Class', Class);

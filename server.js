@@ -10,6 +10,7 @@ const adminRoutes = require('./routes/admins.route');
 const todoRoutes = require('./routes/todos.route');
 const formRoutes = require('./routes/forms.route');
 const taskRoutes = require('./routes/tasks.route');
+const classRoutes = require('./routes/classes.route');
 
 const PORT = 4000;
 
@@ -28,6 +29,7 @@ app.use('/students', studentRoutes);
 app.use('/admins', adminRoutes);
 app.use('/forms', formRoutes);
 app.use('/tasks', taskRoutes);
+app.use('/classes', classRoutes);
 
 app.listen(PORT, function() {
     console.log("Server is running on Port: " + PORT);
