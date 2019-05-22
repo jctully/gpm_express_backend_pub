@@ -4,13 +4,40 @@ const studentRoutes = express.Router();
 let Student = require('../models/student.model');
 
 studentRoutes.route('/').get(function(req, res) {
-    Student.find(function(err, students) {
-        if (err) {
-            console.log(err);
-        } else {
-            res.json(students);
-        }
-    });
+    let qry = req.query.search;
+    let qtr = req.query.qtr;
+    if (qry != null) {
+        Student.find({ 
+            $or:[ 
+                {'student_username':qry}, 
+                {'student_name':qry}, 
+                {'western_id':qry} 
+            ]}, function(err, students) {
+            if (err) {
+                console.log(err);
+            } else {
+                res.json(students);
+            } 
+        });
+    }
+    else if (qtr != null) {
+        Student.find({admission_qtr: qtr}, function(err, students) {
+            if (err) {
+                console.log(err);
+            } else {
+                res.json(students);
+            } 
+        });
+    }
+    else {
+        Student.find(function(err, students) {
+            if (err) {
+                console.log(err);
+            } else {
+                res.json(students);
+            } 
+        });
+    } 
 });
 
 studentRoutes.route('/:id').get(function(req, res) {

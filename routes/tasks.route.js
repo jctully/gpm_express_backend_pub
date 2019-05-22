@@ -4,7 +4,8 @@ const taskRoutes = express.Router();
 let Task = require('../models/task.model');
 
 taskRoutes.route('/').get(function(req, res) {
-    Task.find(function(err, tasks) {
+    console.log("IN FUNCTION TASKS");
+    Task.find({admission_qtr : "s19"}, function(err, tasks) {
         if (err) {
             console.log(err);
         } else {
