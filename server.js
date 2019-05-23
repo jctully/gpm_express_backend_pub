@@ -64,6 +64,6 @@ app.use('/forms', formRoutes);
 app.use('/tasks', taskRoutes);
 app.use('/classes', classRoutes);
 
-const PORT = 4000;
+const port = process.env.PORT || 4000;
 
-app.listen(PORT, () => `Server running on port ${PORT}`);
+app.listen(port, () => console.log(`Server running on port ${port}`));
