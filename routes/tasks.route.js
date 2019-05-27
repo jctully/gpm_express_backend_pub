@@ -4,14 +4,14 @@ const taskRoutes = express.Router();
 let Task = require('../models/task.model');
 
 taskRoutes.route('/').get(function(req, res) {
-    console.log("IN FUNCTION TASKS");
-    Task.find({admission_qtr : "s19"}, function(err, tasks) {
+    Task.find(function(err, tasks) {
         if (err) {
             console.log(err);
         } else {
             res.json(tasks);
         }
     });
+
 });
 
 taskRoutes.route('/:id').get(function(req, res) {
@@ -21,12 +21,23 @@ taskRoutes.route('/:id').get(function(req, res) {
     });
 });
 
-taskRoutes.route('/student/:id').get(function(req, res) {
+taskRoutes.route('/student/:id/').get(function(req, res) {
     let id = req.params.id;
-    console.log('student_id ' + id);
-    Task.find({ task_student_id: id }, function(err, task) {
-        res.json(task);
-    });
+    let qry = req.query.completed;
+    if (qry != null) {
+        Task.find({ task_student_id: id, task_completed:qry }, function(err, task) {
+            if (err) {
+                console.log(err);
+            } else {
+                res.json(task);
+            } 
+        });
+    }
+    else {
+        Task.find({ task_student_id: id }, function(err, task) {
+            res.json(task);
+        });
+    }
 });
 
 taskRoutes.route('/update/:id').post(function(req, res) {
