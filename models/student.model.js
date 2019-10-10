@@ -17,8 +17,10 @@ let Student = new Schema({
     admission_qtr: {
         type: String
     },
-    // new added fields from her email, classes in classes table?
-    status: { // fast track or regular -- ft or reg?
+    program_code: { // fast track or regular -- ft or reg?
+        type: String
+    },
+    status: {
         type: String
     },
     ta_assignment: { // list of history? boolean? other?
@@ -40,6 +42,9 @@ let Student = new Schema({
         type: String
     },
     degree_app_form_link: {
+        type: String
+    },
+    degree_rec_form_link: {
         type: String
     },
     other_notes: {
