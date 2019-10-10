@@ -57,6 +57,7 @@ studentRoutes.route('/update/:id').post(function(req, res) {
             student.student_email = req.body.student_username+"@wwu.edu";
             student.western_id = req.body.western_id;
             student.admission_qtr = req.body.admission_qtr;
+            student.program_code = req.body.program_code;
 
             // Request New Fields
             student.status = req.body.status;
@@ -67,6 +68,7 @@ studentRoutes.route('/update/:id').post(function(req, res) {
             student.expected_grad_qtr = req.body.expected_grad_qtr;
             student.app_to_graduate_form_link = req.body.app_to_graduate_form_link;
             student.degree_app_form_link = req.body.degree_app_form_link;
+            student.degree_rec_form_link = req.body.degree_rec_form_link;
             student.other_notes = req.body.other_notes;
 
             student.save().then(todo => {
