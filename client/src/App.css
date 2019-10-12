@@ -1,0 +1,290 @@
+.App {
+  text-align: center;
+  height:100%;
+  overflow-y: auto;
+  perspective: 2px;
+  
+}
+
+.App-logo {
+  animation: App-logo-spin infinite 20s linear;
+  height: 40vmin;
+  pointer-events: none;
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+.MainContainer {  
+  text-align: center;
+  background-color:#003f87;
+  perspective: 1px;
+  transform-style: preserve-3d;
+  height: 100vh;
+  overflow-y: scroll;
+}
+
+.banner{
+  vertical-align: center;
+  background: url("/images/splash.jpg");
+  height: 30%;
+  max-height: 300px;
+  width: 70%;
+  min-width: 1000px;
+
+  display: inline-block;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+
+  filter: drop-shadow(0 1rem 0.75rem black);
+
+  position: relative;
+  z-index: -1;
+}
+
+
+/* .ParallaxContainer {
+  background-image: url("/images/splash.jpg");
+  background-size: 200% auto;
+  width:70%;
+  top:-500px;
+  right: 7px;
+  vertical-align: top;
+  height: 300px;
+  position: relative;
+  z-index: -1;
+  transform: translateZ(-1px) scale(2);
+  background-position: center;
+  margin:0 auto;
+  background-repeat: no-repeat;
+} */
+
+.ContentContainer {
+  position: relative;
+  top:-7px;
+  bottom:0;
+  left:0;
+  right:0;
+  min-height: calc(100% - 300px);
+  background-color: white;
+  margin: auto;
+  padding: 10px;
+  width:70%;
+  min-width: 1000px;
+
+  filter: drop-shadow(0 1rem 0.75rem black);
+}
+
+
+.page-title {
+  margin-top: 1%;
+  font-size: 2em;
+}
+
+.wrap {
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+}
+
+#bypass {
+  color: blue;
+  background-color: red;
+  position: fixed;
+  top:-15%;
+  right:0;
+}
+
+/* login page */
+#username {
+  display: block;
+  margin: auto;
+}
+
+#password {
+  display: block;
+  margin: auto;
+}
+
+#login-btn {
+  margin-top: 5px;
+}
+
+/* info page */
+#info-login {
+  right:0;
+  top:12%;
+  position: absolute;
+  z-index: 999;
+}
+
+/* admin portal */
+#filter-search {
+  position: relative;
+  padding: 6px;
+  border: 1px solid grey;
+  width: 20em;
+  background: #f1f1f1;
+
+}
+
+.inline {
+  display:inline-block;
+  margin: 0 0px 0 10px;
+}
+
+/* Style the submit button */
+.submit {
+  padding: 6px;
+
+  width: 5%;
+  background: #2196F3;
+  color: white;
+  font-size: 17px;
+  border: 1px solid grey;
+  border-left: none; /* Prevent double borders */
+  cursor: pointer;
+}
+
+.submit:hover {
+  background: #0b7dda;
+}
+
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.tabBody {
+  font-size: calc(10px + 2vmin);
+}
+
+.center {
+  display: inline-block;
+}
+
+/* not using */
+.login-button {
+  border-color: blue;
+  border: solid;
+  border-radius: 10px;
+  padding: 5px;
+  margin-right: 10px;
+}
+
+/* not using */
+.info-button {
+  border-color: blue;
+  border: solid;
+  border-radius: 10px;
+  padding: 5px;
+  margin-left: 10px;
+}
+
+/* button style using western colors */
+.button {
+  color: #fff;
+  background-color: #007ac8;
+  border-width: 3px;
+  display: inline-block;
+  box-sizing: border-box;
+  margin-bottom: 12px;
+  margin-left: 12px;
+  margin-right: 12px;
+  padding: 12px 24px;
+  cursor: pointer;
+  transition: 600ms ease background-color;
+    transition-property: background-color;
+    transition-duration: 600ms;
+    transition-timing-function: ease;
+    transition-delay: 0s;
+  text-align: center;
+  vertical-align: middle;
+  text-decoration: none;
+  border-style: solid;
+  border-color: transparent;
+  border-radius: 100px;
+  font-family: "Fira Sans", sans-serif;
+  font-size: calc((16px + 4 * ((100vw - 300px) / 1000)) * 0.8);
+  font-weight: 400;
+  line-height: 1;
+}
+
+.button:hover {
+  background-color:#003f87;
+
+}
+
+/* alternate button style, ugly colors from internet but has gradient */
+.btn-gradient {
+  text-decoration:none;
+  background: #007ac8;
+  color: white;
+  padding: 10px 30px;
+  display: inline-block;
+  position: relative;
+  border: 1px solid rgba(0,0,0,0.21);
+  border-bottom: 4px solid rgba(0,0,0,0.21);
+  border-radius: 4px;
+  text-shadow: 0 1px 0 rgba(0,0,0,0.15);
+  background: -webkit-gradient(linear, 0 0, 0 100%, from(rgba(27,188,194,1)), to(rgba(24,163,168,1)));
+    background: -webkit-linear-gradient(rgba(27,188,194,1) 0%, rgba(24,163,168,1) 100%);
+    background: -moz-linear-gradient(rgba(27,188,194,1) 0%, rgba(24,163,168,1) 100%);
+    background: -o-linear-gradient(rgba(27,188,194,1) 0%, rgba(24,163,168,1) 100%);
+    background: linear-gradient(rgba(27,188,194,1) 0%, rgba(24,163,168,1) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#1bbcc2', endColorstr='#18a3a8', GradientType=0);
+}
+.btn-gradient:active {
+  background: #169499;
+}
+.btn-gradient:hover {
+  text-decoration:none;
+  
+}
+
+/* For mobile devices */
+@media (max-width: 1000px) {
+  .banner{
+    height: 20%;
+    width: 100%;
+    min-width: 0px;
+  }
+
+  .ContentContainer {
+    min-height: 80%;
+    width:100%;
+    min-width: 0px;
+    filter: none;
+  }
+
+  .page-title {
+    font-size: 1.5em;
+  }
+
+  #info-login {
+    position: static;
+  }
+
+  #bypass {
+    top:2%;
+  }
+  
+
+}
