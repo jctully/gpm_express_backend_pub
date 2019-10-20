@@ -52,11 +52,11 @@ studentRoutes.route('/update/:id').post(function(req, res) {
         if (!student)
             res.status(404).send("data is not found");
         else
-            student.student_username = req.body.student_username;
+            student.email = req.body.email;
             student.student_name = req.body.student_name;
-            student.student_email = req.body.student_username+"@wwu.edu";
             student.western_id = req.body.western_id;
             student.admission_qtr = req.body.admission_qtr;
+            student.admission_year = req.body.admission_year;
             student.program_code = req.body.program_code;
 
             // Request New Fields
