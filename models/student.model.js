@@ -5,6 +5,9 @@ let Student = new Schema({
     student_username: {
         type: String
     },
+    email: {
+        type: String
+    },
     student_name: {
         type: String
     },
@@ -15,6 +18,9 @@ let Student = new Schema({
         type: String
     },
     admission_qtr: {
+        type: String
+    },
+    admission_year: {
         type: String
     },
     program_code: { // fast track or regular -- ft or reg?
