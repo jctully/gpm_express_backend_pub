@@ -4,6 +4,7 @@ const https = require('https');
 const bodyParser = require('body-parser');
 const cors = require('cors');
 const mongoose = require('mongoose');
+const basicAuth = require('express-basic-auth');
 
 const studentRoutes = require('./routes/students.route');
 const adminRoutes = require('./routes/admins.route');
@@ -18,12 +19,17 @@ const PORT = 4000;
 app.use(cors());
 app.use(bodyParser.json());
 
-mongoose.connect('mongodb://127.0.0.1:27017/todos', { useNewUrlParser: true });
+mongoose.connect('mongodb://mongo:27017/todos', { useNewUrlParser: true });
 const connection = mongoose.connection;
 
 connection.once('open', function() {
     console.log("MongoDB database connection established successfully");
 })
+
+// app.use(basicAuth({
+//     users: {'admin': 'secret'},
+//     challenge: true
+// }))
 
 app.use('/todos', todoRoutes);
 app.use('/students', studentRoutes);
