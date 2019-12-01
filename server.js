@@ -5,16 +5,6 @@ const bodyParser = require('body-parser');
 const cors = require('cors');
 const mongoose = require('mongoose');
 
-const studentRoutes = require('./routes/students.route');
-const adminRoutes = require('./routes/admins.route');
-const todoRoutes = require('./routes/todos.route');
-const formRoutes = require('./routes/forms.route');
-const taskRoutes = require('./routes/tasks.route');
-const classRoutes = require('./routes/classes.route');
-const taassignmentRoutes = require('./routes/taassignments.route');
-
-const PORT = 4000;
-
 app.use(cors());
 app.use(bodyParser.json());
 
@@ -22,19 +12,27 @@ mongoose.connect('mongodb://127.0.0.1:27017/todos', { useNewUrlParser: true });
 const connection = mongoose.connection;
 
 connection.once('open', function() {
-    console.log("MongoDB database connection established successfully");
-})
-
-app.use('/todos', todoRoutes);
-app.use('/students', studentRoutes);
-app.use('/admins', adminRoutes);
-app.use('/forms', formRoutes);
-app.use('/tasks', taskRoutes);
-app.use('/classes', classRoutes);
-app.use('/tassignment', taassignmentRoutes);
-
-app.listen(PORT, function() {
-    console.log("Server is running on Port: " + PORT);
+  console.log('MongoDB database connection established successfully');
 });
 
-https.createServer()
+// Init Middleware
+app.use(express.json({ extended: false }));
+
+// Routes
+app.use('/api/users', require('./routes/api/users'));
+app.use('/api/auth', require('./routes/api/auth'));
+app.use('/todos', require('./routes/todos.route'));
+app.use('/students', require('./routes/students.route'));
+app.use('/admins', require('./routes/admins.route'));
+app.use('/forms', require('./routes/forms.route'));
+app.use('/tasks', require('./routes/tasks.route'));
+app.use('/classes', require('./routes/classes.route'));
+app.use('/tassignment', require('./routes/taassignments.route'));
+
+const PORT = process.env.PORT || 4000;
+
+app.listen(PORT, function() {
+  console.log('Server is running on Port: ' + PORT);
+});
+
+https.createServer();
