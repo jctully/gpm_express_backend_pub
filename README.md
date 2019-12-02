@@ -64,3 +64,38 @@ To start the server:
 `npm start`
 
 *Make sure you are running* `mongod` *in one session, and* `npm start` *in another.*
+
+#### Authentication
+In Postman:
+##### Registration
+- POST request to http://localhost:4000/api/users 
+-- This will register a user with (for example):
+--- 
+```{
+    "name": "John Doe",
+    "email": "johndoe@wwu.edu",
+    "password": "123456"
+}
+```
+-- And return a token. This will be the token saved in headers for authentication.
+
+##### Login
+- POST request to http://localhost:4000/api/auth
+-- This will login a user:
+```{
+    "email": "johndoe@wwu.edu",
+    "password": "123456"
+}
+```
+-- And return the same token as 'registration'.
+
+##### Authentication
+- GET request to http://localhost:4000/api/auth
+ -  Headers: 
+  - Key: x-auth-token
+  - Value: <token retrieved from either of login/registration>
+ - Will return the object of user:
+  - ID
+  - name
+  - email
+  - date
